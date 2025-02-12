@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Get the commit message
+commit_msg=$(cat $1)
+
+# Define the pattern
+pattern="^JIRA-[0-9]+: .{14,}$"
+
+if ! echo "$commit_msg" | grep -Eq "$pattern"; then
+    echo "Commit message does not match the required pattern: JIRA-[issue_number]: [message (at least 20 characters long)]"
+    exit 1
+fi
