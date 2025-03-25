@@ -1,0 +1,21 @@
+response = """
+Here is your formatted response:
+
+def greet(name):
+    return f"Hello, {name}"
+
+Make sure to test it before using in production.
+"""
+
+# Define the response block with a copy button
+copy_html = f"""
+<div style="position: relative; border: 1px solid #ccc; border-radius: 8px; padding: 12px; background-color: #f9f9f9; font-family: monospace;">
+    <button onclick="navigator.clipboard.writeText(document.getElementById('response-box').innerText)" 
+        style="position: absolute; top: 8px; right: 8px; padding: 4px 8px; background-color: #eeeeee; border: 1px solid #bbb; border-radius: 4px; cursor: pointer;">
+        📋 Copy
+    </button>
+    <pre id="response-box" style="white-space: pre-wrap; margin-top: 32px;">{response}</pre>
+</div>
+"""
+
+st.markdown(copy_html, unsafe_allow_html=True)
